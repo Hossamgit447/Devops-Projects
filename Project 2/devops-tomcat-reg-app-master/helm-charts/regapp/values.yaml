@@ -1,0 +1,26 @@
+namespace: default
+
+application:
+  replicas: 2
+  image: hossamadocker/regapp
+  imagePullPolicy: Always
+  port: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+services:
+  portType: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+
+ingress:
+  enabled: true
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+  ingressClassName: alb
+  portNumber: 8080
