@@ -1,4 +1,4 @@
-# ISFP DevOps TASK README
+# DevOps TASK README
 
 ![100%](https://progress-bar.dev/100/?title=Done)
 
